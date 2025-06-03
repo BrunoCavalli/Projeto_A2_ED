@@ -1,7 +1,7 @@
 #ifdef BST_H
 #define BST_H
 #include <iostream>
-#include<vector>
+#include <vector>
 #include <string>
 
 namespace bst {
@@ -19,13 +19,13 @@ struct Node {
 struct BinaryTree {
     Node* root;
     Node* NIL;  // usado na RBT (Opcional)
-}
+};
 
 
 struct InsertResult {
     int numComparisons;
     double executionTime;
-    <Possíveis outras variáveis>
+    // Additional variables can be added here if needed, such as metadata or debug information.
 };
 
 struct SearchResult {
@@ -33,9 +33,13 @@ struct SearchResult {
     std::vector<int> documentIds;
     double executionTime;
     int numComparisons;
-    <Possíveis outras variáveis>
+    // Additional variables can be added here, such as metadata or statistics related to the search.
 };
 
+BinaryTree* create();
+InsertResult insert(BinaryTree* tree, const std::string& word, int documentId);
+SearchResult search(BinaryTree* tree, const std::string& word);
+void destroy(BinaryTree* tree);
 
 
 }
