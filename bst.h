@@ -4,6 +4,7 @@
 #include<vector>
 #include <string>
 
+namespace bst {
 
 struct Node {
     std::string word;
@@ -37,7 +38,7 @@ struct SearchResult {
 
 
 
-
+}
 
 
 #endif // BST_H
