@@ -1,48 +1,44 @@
-#ifdef BST_H
-#define BST_H
-#include <iostream>
-#include <vector>
-#include <string>
+    #ifndef BST_H
+    #define BST_H
 
-namespace bst {
+    #include <string>
+    #include <vector>
+    #include <chrono>
 
-struct Node {
-    std::string word;
-    std::vector<int> documentIds;
-    Node* parent;
-    Node* left;
-    Node* right;
-    int height;    // usado na AVL
-    int isRed;     // usado na RBT
-};
+    namespace BST {
 
-struct BinaryTree {
-    Node* root;
-    Node* NIL;  // usado na RBT (Opcional)
-};
+    struct Node {
+        std::string word;
+        std::vector<int> documentIds;
+        Node* parent;
+        Node* left;
+        Node* right;
+        int height;    // não usado na BST
+        int isRed;     // não usado na BST
+    };
 
+    struct BinaryTree {
+        Node* root;
+        Node* NIL; // não usado na BST
+    };
 
-struct InsertResult {
-    int numComparisons;
-    double executionTime;
-    // Additional variables can be added here if needed, such as metadata or debug information.
-};
+    struct InsertResult {
+        int numComparisons;
+        double executionTime;
+    };
 
-struct SearchResult {
-    int found;
-    std::vector<int> documentIds;
-    double executionTime;
-    int numComparisons;
-    // Additional variables can be added here, such as metadata or statistics related to the search.
-};
+    struct SearchResult {
+        int found;
+        std::vector<int> documentIds;
+        double executionTime;
+        int numComparisons;
+    };
 
-BinaryTree* create();
-InsertResult insert(BinaryTree* tree, const std::string& word, int documentId);
-SearchResult search(BinaryTree* tree, const std::string& word);
-void destroy(BinaryTree* tree);
+        BinaryTree* create();
+        InsertResult insert(BinaryTree* tree, const std::string& word, int documentId);
+        SearchResult search(BinaryTree* tree, const std::string& word);
+        void destroy(BinaryTree* tree);
 
+    } // namespace BST
 
-}
-
-
-#endif // BST_H
+    #endif // BST_H
